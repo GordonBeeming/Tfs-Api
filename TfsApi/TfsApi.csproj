@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82DA2569-0717-4262-AC13-DD220890FEF3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TfsApi</RootNamespace>
+    <AssemblyName>TfsApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PublicAssemblies\EnvDTE.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PublicAssemblies\EnvDTE80.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.DeleteTeamProject, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.DeleteTeamProject.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.ProjectManagement, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.ProjectManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Client, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.TestManagement.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.WorkItemTracking.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Proxy, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\12.0\Microsoft.VisualStudio.Services.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\AreaManagerFactory.cs" />
+    <Compile Include="Administration\Contracts\IAreaManager.cs" />
+    <Compile Include="Administration\Contracts\IGlobalList.cs" />
+    <Compile Include="Administration\Contracts\IIterationManager.cs" />
+    <Compile Include="Administration\Contracts\IProcessTemplates.cs" />
+    <Compile Include="Administration\Contracts\ITeamManager.cs" />
+    <Compile Include="Administration\Contracts\ITfsTeam.cs" />
+    <Compile Include="Administration\Dto\ProjectArea.cs" />
+    <Compile Include="Administration\Dto\ProjectDetail.cs" />
+    <Compile Include="Administration\Contracts\ITeamProjects.cs" />
+    <Compile Include="Administration\GlobalListFactory.cs" />
+    <Compile Include="Administration\Helpers\TeamFoundationIdentityHelper.cs" />
+    <Compile Include="Administration\TeamManagerFactory.cs" />
+    <Compile Include="Administration\Workers\AreaManager.cs" />
+    <Compile Include="Administration\Workers\GlobalList.cs" />
+    <Compile Include="Administration\Workers\TeamManager.cs" />
+    <Compile Include="Administration\Workers\TfsTeam.cs" />
+    <Compile Include="Api.cs" />
+    <Compile Include="Contracts\ITfsCredentials.cs" />
+    <Compile Include="Administration\Dto\Collection.cs" />
+    <Compile Include="Administration\Dto\ProjectIteration.cs" />
+    <Compile Include="Administration\Enums\eStructureType.cs" />
+    <Compile Include="Administration\Helpers\TfsNodeStructureHelper.cs" />
+    <Compile Include="Administration\IterationManagerFactory.cs" />
+    <Compile Include="Administration\Workers\IterationManager.cs" />
+    <Compile Include="CredentialProviders\WindowsCredentials.cs" />
+    <Compile Include="Defaults.cs" />
+    <Compile Include="Administration\Dto\ProcessTemplate.cs" />
+    <Compile Include="CredentialProviders\BasicCredential.cs" />
+    <Compile Include="Administration\ProcessTemplateFactory.cs" />
+    <Compile Include="Administration\TfsTeamProjectCollectionFactory.cs" />
+    <Compile Include="Administration\Workers\ProcessTemplates.cs" />
+    <Compile Include="Administration\TeamProjectCollectionFactory.cs" />
+    <Compile Include="Administration\Workers\TeamProjectCollections.cs" />
+    <Compile Include="Administration\Contracts\ITeamProjectCollections.cs" />
+    <Compile Include="Administration\Enums\eReportingActions.cs" />
+    <Compile Include="Administration\Enums\eSharePointActions.cs" />
+    <Compile Include="Extensions\PropertyInfoExtensions.cs" />
+    <Compile Include="Extensions\TfsTeamProjectCollectionExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Administration\TeamProjectFactory.cs" />
+    <Compile Include="Administration\Workers\TeamProjects.cs" />
+    <Compile Include="Queries\Contracts\IQueryRunner.cs" />
+    <Compile Include="Queries\QueryRunnerFactory.cs" />
+    <Compile Include="Queries\Workers\QueryRunner.cs" />
+    <Compile Include="TestManagement\Contracts\ITestCase.cs" />
+    <Compile Include="TestManagement\Contracts\ITestCaseStep.cs" />
+    <Compile Include="TestManagement\Contracts\ITestSuite.cs" />
+    <Compile Include="TestManagement\Contracts\ITestSuiteManager.cs" />
+    <Compile Include="TestManagement\DTO\TestCaseConflict.cs" />
+    <Compile Include="TestManagement\Exceptions\TestCaseConflictException.cs" />
+    <Compile Include="TestManagement\ImportParsers\TestLinkXmlParser.cs" />
+    <Compile Include="TestManagement\TestCaseFactory.cs" />
+    <Compile Include="TestManagement\TestCaseStepFactory.cs" />
+    <Compile Include="TestManagement\TestSuiteFactory.cs" />
+    <Compile Include="TestManagement\TestSuiteManagerFactory.cs" />
+    <Compile Include="TestManagement\Workers\TestCase.cs" />
+    <Compile Include="TestManagement\Workers\TestCaseStep.cs" />
+    <Compile Include="TestManagement\Workers\TestSuite.cs" />
+    <Compile Include="TestManagement\Workers\TestSuiteManager.cs" />
+    <Compile Include="Utilities\CmdUtility.cs" />
+    <Compile Include="Utilities\HtmlRemovalUtility.cs" />
+    <Compile Include="Utilities\StreamUtility.cs" />
+    <Compile Include="WorkItemTracking\Delegates\WorkItemStoreWork.cs" />
+    <Compile Include="WorkItemTracking\WorkItemStoreFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WorkItemTracking\Contracts\" />
+    <Folder Include="WorkItemTracking\Workers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

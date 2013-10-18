@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.TeamFoundation.DeleteTeamProject</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.TeamFoundation.Client.DeletionException">
+      <summary>Thrown when an error occurs during a deletion.</summary>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.DeletionException.#ctor">
+      <summary>Initializes a new DeletionException instance.</summary>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.DeletionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new DeletionException instance.</summary>
+      <param name="info">A message describing the exception.</param>
+      <param name="context">The context of the exception.</param>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.DeletionException.#ctor(System.String)">
+      <summary>Initializes a new DeletionException instance.</summary>
+      <param name="message">A message describing the exception.</param>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.DeletionException.#ctor(System.String,System.Exception)">
+      <summary>Initializes a new DeletionException instance.</summary>
+      <param name="message">A message describing the exception.</param>
+      <param name="innerException">The exception that caused this exception.</param>
+    </member>
+    <member name="T:Microsoft.TeamFoundation.Client.TeamProjectDeleter">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.TeamProjectDeleter.#ctor(Microsoft.TeamFoundation.Client.TeamFoundationServer,System.String,System.Boolean)">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.TeamProjectDeleter.#ctor(Microsoft.TeamFoundation.Client.TfsTeamProjectCollection,System.String,System.Boolean)">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.TeamProjectDeleter.Delete">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="P:Microsoft.TeamFoundation.Client.TeamProjectDeleter.ExcludeWss">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+      <returns>Returns <see cref="T:System.Boolean" />.</returns>
+    </member>
+    <member name="P:Microsoft.TeamFoundation.Client.TeamProjectDeleter.HasWssToDelete">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+      <returns>Returns <see cref="T:System.Boolean" />.</returns>
+    </member>
+    <member name="P:Microsoft.TeamFoundation.Client.TeamProjectDeleter.IssuesDeletingProject">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+      <returns>Returns <see cref="T:System.Collections.Generic.List`1" />.</returns>
+    </member>
+    <member name="E:Microsoft.TeamFoundation.Client.TeamProjectDeleter.StatusEvent">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:Microsoft.TeamFoundation.Client.TeamProjectDeleter.StatusEventArgs">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:Microsoft.TeamFoundation.Client.TeamProjectDeleter.StatusEventArgs.#ctor(System.String)">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="P:Microsoft.TeamFoundation.Client.TeamProjectDeleter.StatusEventArgs.message">
+      <returns>Returns <see cref="T:System.String" />.</returns>
+    </member>
+    <member name="T:Microsoft.TeamFoundation.Client.TeamProjectDeleter.StatusEventHandler">
+      <summary>This API supports the Team Foundation Server infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+  </members>
+</doc>
