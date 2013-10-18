@@ -85,7 +85,14 @@ namespace TfsApi.Administration.Workers
 
         public bool ValueExistsInList(string value)
         {
-            return _items.Contains(value);
+            foreach (var item in _items)
+            {
+                if (string.Compare(item, value, true) == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void RemoveFromList(string value)
