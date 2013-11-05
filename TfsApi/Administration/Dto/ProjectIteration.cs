@@ -4,6 +4,7 @@
 
     using System;
     using System.Collections.Generic;
+    using System.Web.Script.Serialization;
 
     #endregion
 
@@ -19,6 +20,7 @@
 
         public string Name { get; set; }
 
+        [ScriptIgnore]
         public ProjectIteration ParentProjectIteration { get; set; }
 
         public string ParentUri { get; set; }

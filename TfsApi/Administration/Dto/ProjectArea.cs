@@ -5,6 +5,8 @@ using System.Text;
 
 namespace TfsApi.Administration.Dto
 {
+    using System.Web.Script.Serialization;
+
     public class ProjectArea
     {
         public string Name { get; set; }
@@ -15,6 +17,7 @@ namespace TfsApi.Administration.Dto
 
         public string FullPath { get; set; }
 
+        [ScriptIgnore]
         public ProjectArea ParentProjectArea { get; set; }
 
         public string ParentUri { get; set; }
