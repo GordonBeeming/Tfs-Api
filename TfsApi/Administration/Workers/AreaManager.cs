@@ -240,11 +240,12 @@ namespace TfsApi.Administration.Workers
         }
 
 
-        public void DeleteArea(ProjectArea projectArea)
+        public void DeleteArea(ProjectArea projectArea, ProjectArea reAssignArea = null)
         {
             if (projectArea != null)
             {
-                this.commonStructureService.DeleteBranches(new[] { projectArea.Uri }, projectArea.ParentUri);
+                ProjectArea newProjectArea = reAssignArea ?? projectArea.ParentProjectArea;
+                this.commonStructureService.DeleteBranches(new[] { projectArea.Uri }, newProjectArea.Uri);
             }
             else
             {
@@ -252,13 +253,22 @@ namespace TfsApi.Administration.Workers
             }
         }
 
-        public void DeleteAreaUsingAreaPath(string areaPath)
+        public void DeleteAreaUsingAreaPath(string areaPath, string reAssignAreaPath = null)
         {
             if (this.CheckIfPathAlreadyExists(areaPath))
             {
                 string formattedAreaPath = this.FormatAreaName(areaPath);
                 ProjectArea projectArea = this.FindProjectArea(formattedAreaPath);
-                this.DeleteArea(projectArea);
+                ProjectArea newProjectArea = projectArea.ParentProjectArea;
+                if (!string.IsNullOrEmpty(reAssignAreaPath))
+                {
+                    newProjectArea = this.FindProjectArea(reAssignAreaPath);
+                    if (newProjectArea == null)
+                    {
+                        throw new ArgumentOutOfRangeException("No path exists for " + reAssignAreaPath);
+                    }
+                }
+                this.DeleteArea(projectArea, newProjectArea);
             }
             else
             {

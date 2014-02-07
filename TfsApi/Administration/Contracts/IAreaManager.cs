@@ -20,9 +20,9 @@ namespace TfsApi.Administration.Contracts
 
         bool IsAreaPathEnabled(ITfsTeam tfsTeam, string areaName);
 
-        void DeleteArea(ProjectArea projectArea);
+        void DeleteArea(ProjectArea projectArea, ProjectArea reAssignArea = null);
 
-        void DeleteAreaUsingAreaPath(string areaPath);
+        void DeleteAreaUsingAreaPath(string areaPath, string reAssignAreaPath = null);
 
         ProjectArea FindProjectArea(string fullAreaPath);
 
