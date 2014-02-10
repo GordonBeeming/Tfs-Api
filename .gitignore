@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TfsApi/bin/Debug
+/TfsApi.Tests/bin/Debug
+/TfsApi/obj/Debug
+/TfsApi.Tests/obj/Debug

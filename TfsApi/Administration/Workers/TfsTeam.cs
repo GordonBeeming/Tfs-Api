@@ -191,7 +191,7 @@ namespace TfsApi.Administration.Workers
 
             LoadIterationPaths();
         }
-
+        
         public void EnableAreaPath(string areaPath, bool includeChildren)
         {
             DefaultTeamSettings();
@@ -200,6 +200,17 @@ namespace TfsApi.Administration.Workers
             TeamConfiguration.TeamSettings.TeamFieldValues.CopyTo(areas, 0);
             areas[areas.Length - 1] = new TeamFieldValue { Value = this.FormatPath(areaPath), IncludeChildren = includeChildren };
             TeamConfiguration.TeamSettings.TeamFieldValues = areas;
+            this.TeamSettingsConfigurationService.SetTeamSettings(this.TeamConfiguration.TeamId, TeamConfiguration.TeamSettings);
+
+            LoadAreaPaths();
+        }
+
+        public void SwitchTeamEnabledAreaPaths(Dictionary<string, bool> areaPathsWithIncludeChildren)
+        {
+            DefaultTeamSettings();
+
+            TeamConfiguration.TeamSettings.TeamFieldValues = areaPathsWithIncludeChildren.Select(o => new TeamFieldValue { Value = this.FormatPath(o.Key), IncludeChildren = o.Value }).ToArray();
+
             this.TeamSettingsConfigurationService.SetTeamSettings(this.TeamConfiguration.TeamId, TeamConfiguration.TeamSettings);
 
             LoadAreaPaths();
@@ -223,14 +234,14 @@ namespace TfsApi.Administration.Workers
 
         private void DefaultTeamSettings()
         {
-            //if (TeamConfiguration.TeamSettings.IterationPaths.Length == 0)
-            //{
-            //    TeamConfiguration.TeamSettings.IterationPaths = new[] { ProjectDetails.ProjectName };
-            //}
             if (TeamConfiguration.TeamSettings.BacklogIterationPath == null)
             {
                 TeamConfiguration.TeamSettings.BacklogIterationPath = ProjectDetails.ProjectName;
             }
+            //if (TeamConfiguration.TeamSettings.CurrentIterationPath == null && TeamConfiguration.TeamSettings.IterationPaths.Length == 0)
+            //{
+            //    TeamConfiguration.TeamSettings.IterationPaths = new[] { ProjectDetails.ProjectName };
+            //}
             if (TeamConfiguration.TeamSettings.TeamFieldValues == null || TeamConfiguration.TeamSettings.TeamFieldValues.Length == 0)
             {
                 TeamConfiguration.TeamSettings.TeamFieldValues = new TeamFieldValue[] { new TeamFieldValue { IncludeChildren = true, Value = this.ProjectDetails.ProjectName } };
