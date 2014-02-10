@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>TfsApi</id>
+        <version>1.4</version>
+        <title>TFS API</title>
+        <authors>Gordon Beeming</authors>
+        <projectUrl>https://github.com/Gordon-Beeming/Tfs-Api</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>The TFS API project is a simple wrapper for the TFS API that currently exists, it is designed to try make is easier to use.</description>
+        <language>en-ZA</language>
+        <tags>TFS, API</tags>
+    </metadata>
+    <files>
+        <file src="..\..\..\TfsApi\bin\Release\TfsApi.dll" target="lib\net45\TfsApi.dll" />
+        <file src="..\..\..\TfsApi\bin\Release\TfsApi.pdb" target="lib\net45\TfsApi.pdb" />
+    </files>
+</package>
