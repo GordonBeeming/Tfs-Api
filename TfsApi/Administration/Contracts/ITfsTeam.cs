@@ -70,7 +70,7 @@ namespace TfsApi.Administration.Contracts
 
         void EnableAreaPath(string areaPath, bool includeChildren);
 
-        void SwitchTeamEnabledAreaPaths(Dictionary<string, bool> areaPathsWithIncludeChildren);
+        void SwitchTeamEnabledAreaPaths(Dictionary<string, bool> areaPathsWithIncludeChildren, bool tryAddDefaultIterationPathIfRequired = false);
 
         void DisableAreaPath(string areaPath);
 

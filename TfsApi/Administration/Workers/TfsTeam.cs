@@ -205,9 +205,9 @@ namespace TfsApi.Administration.Workers
             LoadAreaPaths();
         }
 
-        public void SwitchTeamEnabledAreaPaths(Dictionary<string, bool> areaPathsWithIncludeChildren)
+        public void SwitchTeamEnabledAreaPaths(Dictionary<string, bool> areaPathsWithIncludeChildren, bool tryAddDefaultIterationPathIfRequired = false)
         {
-            DefaultTeamSettings();
+            DefaultTeamSettings(tryAddDefaultIterationPathIfRequired);
 
             TeamConfiguration.TeamSettings.TeamFieldValues = areaPathsWithIncludeChildren.Select(o => new TeamFieldValue { Value = this.FormatPath(o.Key), IncludeChildren = o.Value }).ToArray();
 
@@ -232,16 +232,20 @@ namespace TfsApi.Administration.Workers
             LoadAreaPaths();
         }
 
-        private void DefaultTeamSettings()
+        private void DefaultTeamSettings(bool tryAddDefaultIterationPath = false)
         {
-            if (TeamConfiguration.TeamSettings.BacklogIterationPath == null)
+            if (tryAddDefaultIterationPath)
             {
-                TeamConfiguration.TeamSettings.BacklogIterationPath = ProjectDetails.ProjectName;
+                if (string.IsNullOrEmpty(TeamConfiguration.TeamSettings.BacklogIterationPath))
+                {
+                    TeamConfiguration.TeamSettings.BacklogIterationPath = ProjectDetails.ProjectName;
+                }
+                if (TeamConfiguration.TeamSettings.IterationPaths == null || TeamConfiguration.TeamSettings.IterationPaths.Length == 0)
+                {
+                    IIterationManager iterationManager = IterationManagerFactory.GetManager(ProjectDetails, tfsCredentials);
+                    TeamConfiguration.TeamSettings.IterationPaths = iterationManager.ListIterations().Select(o => o.FullPath).ToArray();
+                }
             }
-            //if (TeamConfiguration.TeamSettings.CurrentIterationPath == null && TeamConfiguration.TeamSettings.IterationPaths.Length == 0)
-            //{
-            //    TeamConfiguration.TeamSettings.IterationPaths = new[] { ProjectDetails.ProjectName };
-            //}
             if (TeamConfiguration.TeamSettings.TeamFieldValues == null || TeamConfiguration.TeamSettings.TeamFieldValues.Length == 0)
             {
                 TeamConfiguration.TeamSettings.TeamFieldValues = new TeamFieldValue[] { new TeamFieldValue { IncludeChildren = true, Value = this.ProjectDetails.ProjectName } };

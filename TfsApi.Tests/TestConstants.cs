@@ -103,7 +103,7 @@ More Info : http://tfsapi.codeplex.com.";
         {
             get
             {
-                return new Uri("http://DerTfs02");
+                return new Uri("http://TfsServer:8080/tfs");
             }
         }
 
