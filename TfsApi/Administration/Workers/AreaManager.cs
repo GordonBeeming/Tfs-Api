@@ -84,8 +84,8 @@ namespace TfsApi.Administration.Workers
         {
             ProjectInfo projectInfo = this.commonStructureService.GetProjectFromName(this.projectDetail.ProjectName);
             NodeInfo[] nodes = this.commonStructureService.ListStructures(projectInfo.Uri);
-
-            XmlElement iterationsTree = this.commonStructureService.GetNodesXml(new[] { nodes.First(o => o.Name == "Area").Uri }, true);
+            string uri = nodes.First(o => o.Name == "Area").Uri;
+            XmlElement iterationsTree = this.commonStructureService.GetNodesXml(new[] { uri }, true);
             return iterationsTree;
         }
 
